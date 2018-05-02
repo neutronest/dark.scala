@@ -1,5 +1,6 @@
 import Dependencies._
-lazy val root = (project in file(".")).settings(
+lazy val root = (project in file(".")).
+  settings(
     inThisBuild(List(
       organization := "com.neulab",
       scalaVersion := "2.12.3",
@@ -17,5 +18,3 @@ lazy val root = (project in file(".")).settings(
 "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.11" % Test
     )
   )
-
-
