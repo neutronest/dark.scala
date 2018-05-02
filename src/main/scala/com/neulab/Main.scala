@@ -6,7 +6,7 @@ object Main extends App {
 
   println("Hello world")
 
-  val rng = new RNGZero(12356)
+  val rng = new RNGZero(12356: Long)
   val (i1, i2) = rng.randomPair()
   println(i1, i2)
 

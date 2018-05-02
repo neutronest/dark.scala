@@ -21,21 +21,23 @@ class RNGZero(seed: Long) extends MyRNG {
 
   def randomPair() : (Int, Int) = {
 
-    val (i1, _) = this.nextInt
-    val (i2, _) = this.nextInt
+    val (i1, _) = this.nextInt[Int]
+    val (i2, _) = this.nextInt[Int]
     (i1, i2)
   }
 
   def randomPairV2(): ((Int, Int), RNGZero) = {
 
-    val (r1, rng1) = this.nextInt
-    val (r2, rng2) = rng1.nextInt
+    val (r1, rng1) = this.nextInt[Int]
+    val (r2, rng2) = rng1.nextInt[Int]
     ((r1, r2), rng2)
 
   }
 
-  override def nextInt: (Int, RNGZero) = {
+  override def nextInt[Int]: (Int, RNGZero) = {
     val seedNext: Long = generateNextSeed(seed)
+    println(seedNext)
+    println(seedNext>>>16)
     ((seedNext >>> 16).asInstanceOf[Int], new RNGZero(seedNext))
   }
 
