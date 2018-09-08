@@ -6,7 +6,7 @@ lazy val root = (project in file(".")).
       scalaVersion := "2.12.3",
       version      := "0.1.0-SNAPSHOT"
     )),
-    name := "scala-practice",
+    name := "Dark.scala",
     libraryDependencies += scalaTest % Test,
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-actor" % "2.5.11",
