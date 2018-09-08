@@ -45,16 +45,26 @@ class RNGZero(seed: Long) extends MyRNG {
     val seedNext: Long = generateNextSeed(seed)
     val intNext =  (seedNext >>> 16).asInstanceOf[Int]
     var positiveNext = 0
-    if (intNext != Int.MinValue) {
-      positiveNext = intNext.abs
+    intNext match {
+        case Int.MinValue => (0, new RNGZero(seedNext))
+        case x : Int => (x.abs, new RNGZero(seedNext))
     }
-    (positiveNext,  new RNGZero(seedNext))
   }
 
 
   // TODO Implement
   def nextDouble: (Double, RNGZero) = {
     val seedNext: Long = generateNextSeed(seed)
-    (1.0, new RNGZero(seedNext))
+    val intNext = (seedNext >>> 16).asInstanceOf[Int]
+    (intNext.toDouble / Int.MaxValue, new RNGZero(seedNext))
   }
+}
+
+object RNGZero {
+
+
+//
+//  def double(rng: RNGZero) : (Double, RNGZero) = {
+//
+//  }
 }
