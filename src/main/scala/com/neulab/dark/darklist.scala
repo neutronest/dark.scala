@@ -63,6 +63,22 @@ object DarkList {
 
     }
 
+    def foldLeft[A, B](darkList: DarkList[A], z: B)(f: (A, B) => B) : B = {
+        darkList match {
+            case DarkNil => z
+            case DarkCons(x, xs) => foldLeft(xs, f(x, z))(f)
+        }
+    }
+
+    def foldRight[A, B](darkList: DarkList[A], z: B)(f: (A, B) => B) : B = {
+    
+        darkList match {
+            case DarkNil => z
+            case DarkCons(x, xs) => f(x, foldRight(xs, z)(f))
+        }    
+    }
+
+
     def sum(intList: DarkList[Int]) : Int = {
        intList match {
            case DarkNil => 0
