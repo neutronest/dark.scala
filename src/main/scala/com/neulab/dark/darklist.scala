@@ -79,6 +79,11 @@ object DarkList {
     }
 
 
+    def length[A](darkList: DarkList[A]) : Int = {
+        DarkList.foldRight(darkList, 0)((x: A, y: Int) => y+1)
+    }
+
+
     def sum(intList: DarkList[Int]) : Int = {
        intList match {
            case DarkNil => 0
