@@ -78,6 +78,14 @@ object DarkList {
         }    
     }
 
+    def map[A, B](darkList: DarkList[A])(f: A => B) : DarkList[B] = {
+
+        darkList match {
+            case DarkNil => DarkNil
+            case DarkCons(x, xs) => DarkCons(f(x), map(xs)(f))
+        }
+    }
+
 
     def length[A](darkList: DarkList[A]) : Int = {
         DarkList.foldRight(darkList, 0)((x: A, y: Int) => y+1)

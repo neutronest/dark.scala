@@ -37,4 +37,11 @@ class TestDarkList extends FlatSpec with Matchers {
         val dl1 = DarkList(1,2,3,4,5,6)
         assert(DarkList.length(dl1) == 6)
     }
+
+    it should "map" in {
+        val dl1 = DarkList(1,2,3,4,5,6)
+        val dl2 = DarkList(2,4,6,8,10,12)
+
+        assert(DarkList.map(dl1)((x: Int) => x * 2) == dl2)
+    }
 }
