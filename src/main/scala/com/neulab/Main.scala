@@ -1,6 +1,7 @@
 package com.neulab
 
 import com.neulab.rand.RNGZero
+import com.neulab.dark
 
 object Main extends App {
 
@@ -12,6 +13,30 @@ object Main extends App {
 //
 //  val (r1, r2) = rng.randomPairV2()
 //  println(r1, r2)
+
+  val l1 = List(1,2,3,4,5)
+  val l2 = List("大", "波", "罗", "密", "谛")
+  val implicitFoobar = dark.ImplicitFoobar
+  val intRes : Int = implicitFoobar.sumV1(l1, dark.ImplicitFoobar.intImplicitFoobar)
+  println(intRes)
+
+  val stringRes = implicitFoobar.sumV1(l2, dark.ImplicitFoobar.stringImplicitFoobar)
+  println(stringRes)
+
+
+
+  val res2 = implicitFoobar.sumV2(l1)
+  println(res2)
+
+  val res4 = implicitFoobar.sumV2(l2)
+  println(res4)
+
+  val res3 = implicitFoobar.sumV3(l1)(dark.ImplicitFoobar.intImplicitFoobar)
+  println(res3)
+
+  import implicitFoobar.intSleepWrapper
+  5 times(println("Axiba"))
+
 
 }
 
