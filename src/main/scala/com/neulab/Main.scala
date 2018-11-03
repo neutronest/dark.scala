@@ -18,18 +18,18 @@ object Main extends App {
   val l2 = List("大", "波", "罗", "密", "谛")
   val implicitFoobar = dark.ImplicitFoobar
   val intRes : Int = implicitFoobar.sumV1(l1, dark.ImplicitFoobar.intImplicitFoobar)
-  println(intRes)
+  println("explicit int foobar", intRes)
 
   val stringRes = implicitFoobar.sumV1(l2, dark.ImplicitFoobar.stringImplicitFoobar)
-  println(stringRes)
+  println("explicit string foobar ", stringRes)
 
 
 
   val res2 = implicitFoobar.sumV2(l1)
-  println(res2)
+  println("implicit int foobar", res2)
 
   val res4 = implicitFoobar.sumV2(l2)
-  println(res4)
+  println("implicit string foobar", res4)
 
   val res3 = implicitFoobar.sumV3(l1)(dark.ImplicitFoobar.intImplicitFoobar)
   println(res3)
